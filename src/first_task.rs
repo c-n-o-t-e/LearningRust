@@ -13,7 +13,7 @@ fn main() {
 
     let number: u128 = number.trim().parse().expect("Invalid input");
 
-    println!("The final calculate the difference is {}", sum(number));
+    println!("The outputs sum is {}", sum(number));
 }
 
 fn sum(mut num: u128) -> u128 {
