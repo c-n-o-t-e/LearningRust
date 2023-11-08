@@ -23,7 +23,7 @@ fn main() {
 
     let values: Vec<u128> = number.trim().split(',').map(|s| s.parse().unwrap()).collect();
     let (number_of_cars, number_of_hours) = total_production(values[0],values[1]);
-    let cars_produced_per_minute = cars_produced_per_minute(values[0],values[1]);
+    let cars_produced_per_minute: f64 = cars_produced_per_minute(values[0],values[1]);
 
     println!("The total number of cars successfully produced without faults within {} hours is {}", number_of_hours, number_of_cars);
     println!("The total number of cars successfully produced per minute within {} hours is {}", number_of_hours, cars_produced_per_minute);
