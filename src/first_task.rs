@@ -20,10 +20,10 @@ fn sum(mut num: u128) -> u128 {
     while num > 0 {
         num = num - 1;
         if num % 3 == 0 || num % 5 == 0{
-           if num % 3 == 0 && num % 5 == 0 {
-            number += num;
-            continue;
-           }
+            if num % 3 == 0 && num % 5 == 0 {
+                number += num;
+                continue;
+            }
            number += num;
         }
     }
