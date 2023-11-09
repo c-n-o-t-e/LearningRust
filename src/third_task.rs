@@ -1,3 +1,5 @@
+use std::env;
+
 fn main() {
     // This question involves writing code to analyze the production of an assembly line in a car factory. 
     // The assembly line has different speeds, ranging from 0 (off) to 10 (maximum). At the lowest speed of 1, the assembly line produces a total of 221 cars per hour. 
@@ -16,14 +18,13 @@ fn main() {
 
     // Write the code for both functions based on the provided specifications.
 
-    let mut number = String::new();
-    std::io::stdin()
-        .read_line(&mut number)
-        .expect("Failed to read input.");
+    let args: Vec<String> = env::args().collect();
 
-    let values: Vec<u128> = number.trim().split(',').map(|s| s.parse().unwrap()).collect();
-    let (number_of_cars, number_of_hours) = total_production(values[0],values[1]);
-    let cars_produced_per_minute: f64 = cars_produced_per_minute(values[0],values[1]);
+    let value: u128 = args[1].parse().unwrap();
+    let value0: u128 = args[2].parse().unwrap();
+
+    let (number_of_cars, number_of_hours) = total_production(value, value0);
+    let cars_produced_per_minute: f64 = cars_produced_per_minute(value, value0);
 
     println!("The total number of cars successfully produced without faults within {} hours is {}", number_of_hours, number_of_cars);
     println!("The total number of cars successfully produced per minute within {} hours is {}", number_of_hours, cars_produced_per_minute);
