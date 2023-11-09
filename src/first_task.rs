@@ -1,3 +1,5 @@
+use std::env;
+
 fn main() {
     // Write a program to find the sum of natural numbers below a given number N, where N is provided by the user. 
     // The sum should only include numbers that are multiples of either 3 or 5.
@@ -6,14 +8,10 @@ fn main() {
     // The sum will be calculated as follows: 3 + 5 + 6 + 9 + 10 + 12 + 15 + 18.
     // Write a program that takes the user input N, performs the necessary calculations, and outputs the sum.
 
-    let mut number = String::new();
-    std::io::stdin()
-        .read_line(&mut number)
-        .expect("Failed to read input.");
+    let args: Vec<String> = env::args().collect();
+    let value: u128 = args[1].parse().unwrap();
 
-    let number: u128 = number.trim().parse().expect("Invalid input");
-
-    println!("The outputs sum is {}", sum(number));
+    println!("The outputs sum is {}", sum(value));
 }
 
 fn sum(mut num: u128) -> u128 {

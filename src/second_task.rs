@@ -1,3 +1,5 @@
+use std::env;
+
 fn main() {
     // Write a program to find the difference between the square of the sum and the sum of the squares of the first N numbers. 
     // N will be a user-defined input that your program will take.
@@ -5,14 +7,10 @@ fn main() {
     // Next, compute the sum of the squares as (1^2 + 2^2 + 3^2 + 4^2 + 5^2) = (1 + 4 + 9 + 16 + 25) = 55.
     // Finally, calculate the difference as 225 - 55 = 170.
 
-    let mut number = String::new();
-    std::io::stdin()
-        .read_line(&mut number)
-        .expect("Failed to read input.");
+    let args: Vec<String> = env::args().collect();
+    let value: u128 = args[1].parse().unwrap();
 
-    let number: u128 = number.trim().parse().expect("Invalid input");
-
-    println!("The final calculated difference is {}", get_diff(number));
+    println!("The final calculated difference is {}", get_diff(value));
 }
 
 fn get_diff(mut num: u128) -> u128 {
