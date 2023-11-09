@@ -12,12 +12,5 @@ fn main() {
 }
 
 fn can_see_movie(age: i32, permission: bool) -> bool {
-
-    if age >= 17 {
-        return true;
-    } else if age < 17 && permission {
-        return true;
-    } else {
-        return false;
-    }
+    (age >= 17) || (age >= 13 && permission)
 }
