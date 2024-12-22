@@ -109,3 +109,77 @@ fn get_success_rate(speed: u8) -> f32 {
         _ => 0.0,
     };
 }
+
+// Problem 4:
+
+/*
+A palindrome is a word, verse, or sentence that reads the same backward or forward,
+such as 'Able was I ere I saw Elba,' or a number like 1881.
+
+Write a function named is_palindrome() that checks whether a given string is a palindrome or not.
+The function should take a string as input and return a boolean value indicating whether the string is a palindrome or not.
+*/
+
+fn main() {
+    let input = String::from("1881");
+    println!(
+        "It is {:?} that the given string is palindrome",
+        palindrome(input)
+    );
+}
+
+fn palindrome(input: String) -> bool {
+    /* Your Code here */
+    let reversed: String = input.chars().rev().collect();
+    input == reversed
+}
+
+// Problem 5:
+
+/*
+A Pythagorean triple consists of three positive integers a, b, and c, satisfying the condition a^2 + b^2 = c^2.
+These triples are commonly written as (a, b, c), and a well-known example is (3, 4, 5).
+
+Write a program that computes the Pythagorean triplet such that a < b < c and a + b + c = 1000.
+*/
+
+fn main() {
+    println!(
+        "The Pythagorean triplet such that a < b < c and a + b + c = 1000 is {:?}",
+        find_pythagorean_triplet()
+    );
+}
+
+fn find_pythagorean_triplet() -> Vec<i32> {
+    let mut result: Vec<i32> = vec![];
+    for a in 1..=1000 {
+        for b in a + 1..=1000 {
+            let c: i32 = 1000 - a - b;
+            if a * a + b * b == c * c {
+                result.push(a);
+                result.push(b);
+                result.push(c);
+            }
+        }
+    }
+    return result;
+}
+
+// Problem 6: Write a function that implements the logic,
+// 'You can see the movie if you are 17 or older, or if you are 13 or older and have a parent's permission.'
+// Note: This means that if you 17 or older, you implicitly have permission.
+
+use std::env;
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+
+    let num: i32 = args[1].parse().unwrap();
+    let flag: bool = args[2].parse().unwrap();
+
+    println!("Can see a movie {}", can_see_movie(num, flag));
+}
+
+fn can_see_movie(age: i32, permission: bool) -> bool {
+    (age >= 17) || (age >= 13 && permission)
+}
