@@ -3,8 +3,7 @@ struct Fruit {
     bananas: i32,
 }
 
-
-impl Fruit{
+impl Fruit {
     fn new_fruit() -> Fruit {
         Fruit {
             apples: 10,
@@ -20,11 +19,13 @@ impl Fruit{
     }
 
     fn print_fruit(&self) {
-        println!("You have {} apples and {} bananas", self.apples, self.bananas );
-    } 
+        println!(
+            "You have {} apples and {} bananas",
+            self.apples, self.bananas
+        );
+    }
 }
 
 fn main() {
     Fruit::print_fruit(&Fruit::increase_fruit(&Fruit::new_fruit()));
 }
-
