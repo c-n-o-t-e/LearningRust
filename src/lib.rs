@@ -1,16 +1,29 @@
+//! # Online Store
+//! This is a library for an online store that allows you to create products, customers and orders.
+
 pub use customer::Customer;
 pub use order::Order;
 pub use product::{Category, Product};
+
 mod product {
     pub use category::Category;
+    #[derive(PartialEq, Debug)]
+
+    /// A struct representing a product
     pub struct Product {
-        id: u64,
+        pub id: u64,
         name: String,
         price: f64,
         category: Category,
     }
 
     impl Product {
+        /// #Test Example
+        /// ```
+        /// use learn_rust999999911111999::{Category, Product};    
+        /// let some_product = Product::new(1, "Laptop".to_string(), 1000.0, Category::Electronics);
+        /// assert_eq!(some_product.id, 1);
+        /// ```
         pub fn new(id: u64, name: String, price: f64, category: Category) -> Product {
             Product {
                 id,
@@ -19,22 +32,23 @@ mod product {
                 category,
             }
         }
-    }
-    mod category {
-        pub enum Category {
-            Electronics,
-            Clothing,
-            Books,
-        }
-    }
 
-    impl Product {
         fn calculate_tax(&self) -> f64 {
             self.price * 0.1
         }
 
         pub fn product_price(&self) -> f64 {
             self.price + self.calculate_tax()
+        }
+    }
+
+    mod category {
+        #[derive(PartialEq, Debug)]
+        /// A module representing the category of a product
+        pub enum Category {
+            Electronics,
+            Clothing,
+            Books,
         }
     }
 }

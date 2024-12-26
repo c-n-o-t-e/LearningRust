@@ -46,140 +46,137 @@ The sum will be calculated as follows: 3 + 5 + 6 + 9 + 10 + 12 + 15 + 18.
 Write a program that takes the user input N, performs the necessary calculations, and outputs the sum.
 */
 
-fn main() {
-    let mut n = String::new();
-    std::io::stdin()
-        .read_line(&mut n)
-        .expect("failed to read input.");
-    let n: i32 = n.trim().parse().expect("invalid input");
+// fn main() {
+//     let mut n = String::new();
+//     std::io::stdin()
+//         .read_line(&mut n)
+//         .expect("failed to read input.");
+//     let n: i32 = n.trim().parse().expect("invalid input");
 
-    /* Add your code below this line */
-    let mut sum: i32 = 0;
+//     /* Add your code below this line */
+//     let mut sum: i32 = 0;
 
-    for i in 1..n {
-        if i % 3 == 0 || i % 5 == 0 {
-            sum = sum + i;
-        }
-    }
+//     for i in 1..n {
+//         if i % 3 == 0 || i % 5 == 0 {
+//             sum = sum + i;
+//         }
+//     }
 
-    println!("\n\n The sum of the multiples are = {sum}");
-}
+//     println!("\n\n The sum of the multiples are = {sum}");
+// }
 
-// Problem 3:
+// // Problem 3:
 
-/*
-This question involves writing code to analyze the production of an assembly line in a car factory.
-The assembly line has different speeds, ranging from 0 (off) to 10 (maximum).
-At the lowest speed of 1, the assembly line produces a total of 221 cars per hour.
-The production rate increases linearly with the speed,
-meaning that a speed of 4 produces 4 * 221 = 884 cars per hour.
+// /*
+// This question involves writing code to analyze the production of an assembly line in a car factory.
+// The assembly line has different speeds, ranging from 0 (off) to 10 (maximum).
+// At the lowest speed of 1, the assembly line produces a total of 221 cars per hour.
+// The production rate increases linearly with the speed,
+// meaning that a speed of 4 produces 4 * 221 = 884 cars per hour.
 
-However, higher speeds increase the likelihood of producing faulty cars that need to be discarded.
-The success rate depends on the speed, as shown in the table below:
-· Speeds 1 to 4: 100% success rate.
-· Speeds 5 to 8: 90% success rate.
-· Speeds 9 and 10: 77% success rate.
+// However, higher speeds increase the likelihood of producing faulty cars that need to be discarded.
+// The success rate depends on the speed, as shown in the table below:
+// · Speeds 1 to 4: 100% success rate.
+// · Speeds 5 to 8: 90% success rate.
+// · Speeds 9 and 10: 77% success rate.
 
-You need to write two functions:
-1. The first function, total_production(), calculates the total number of cars successfully produced without faults within a specified time given in hours. The function takes the number of hours and speed as input and returns the number of cars successfully produced.
-2. The second function, cars_produced_per_minute(), calculates the number of cars successfully produced per minute. The function takes the number of hours and speed as input and returns the number of cars produced per minute.
-Write the code for both functions based on the provided specifications.
-*/
+// You need to write two functions:
+// 1. The first function, total_production(), calculates the total number of cars successfully produced without faults within a specified time given in hours. The function takes the number of hours and speed as input and returns the number of cars successfully produced.
+// 2. The second function, cars_produced_per_minute(), calculates the number of cars successfully produced per minute. The function takes the number of hours and speed as input and returns the number of cars produced per minute.
+// Write the code for both functions based on the provided specifications.
+// */
+// fn main() {
+//     println!("{}", total_production(6, 9) as i32); // to round the values we use i32. just ignore for mow
+//     println!("{}", cars_produced_per_minutes(6, 9) as i32); // to round the values we use i32. just ignore for mow
+// }
 
-fn main() {
-    println!("{}", total_production(6, 9) as i32); // to round the values we use i32. just ignore for mow
-    println!("{}", cars_produced_per_minutes(6, 9) as i32); // to round the values we use i32. just ignore for mow
-}
+// fn total_production(hours: u8, speed: u8) -> f32 {
+//     /* Your code below this line*/
+//     221.0 * (speed as f32) * (hours as f32) * get_success_rate(speed)
+// }
 
-fn total_production(hours: u8, speed: u8) -> f32 {
-    /* Your code below this line*/
-    221.0 * (speed as f32) * (hours as f32) * get_success_rate(speed)
-}
+// fn cars_produced_per_minutes(hours: u8, speed: u8) -> f32 {
+//     /* Your code below this line*/
+//     (221.0 / 60.0) * (speed as f32) * get_success_rate(speed)
+// }
 
-fn cars_produced_per_minutes(hours: u8, speed: u8) -> f32 {
-    /* Your code below this line*/
-    (221.0 / 60.0) * (speed as f32) * get_success_rate(speed)
-}
+// fn get_success_rate(speed: u8) -> f32 {
+//     match speed {
+//         9..=10 => 0.77,
+//         5..=8 => 0.90,
+//         1..=4 => 1.0,
+//         _ => 0.0,
+//     };
+// }
 
-fn get_success_rate(speed: u8) -> f32 {
-    match speed {
-        9..=10 => 0.77,
-        5..=8 => 0.90,
-        1..=4 => 1.0,
-        _ => 0.0,
-    };
-}
+// // Problem 4:
 
-// Problem 4:
+// /*
+// A palindrome is a word, verse, or sentence that reads the same backward or forward,
+// such as 'Able was I ere I saw Elba,' or a number like 1881.
 
-/*
-A palindrome is a word, verse, or sentence that reads the same backward or forward,
-such as 'Able was I ere I saw Elba,' or a number like 1881.
+// Write a function named is_palindrome() that checks whether a given string is a palindrome or not.
+// The function should take a string as input and return a boolean value indicating whether the string is a palindrome or not.
+// */
+// fn main() {
+//     let input = String::from("1881");
+//     println!(
+//         "It is {:?} that the given string is palindrome",
+//         palindrome(input)
+//     );
+// }
 
-Write a function named is_palindrome() that checks whether a given string is a palindrome or not.
-The function should take a string as input and return a boolean value indicating whether the string is a palindrome or not.
-*/
+// fn palindrome(input: String) -> bool {
+//     /* Your Code here */
+//     let reversed: String = input.chars().rev().collect();
+//     input == reversed
+// }
 
-fn main() {
-    let input = String::from("1881");
-    println!(
-        "It is {:?} that the given string is palindrome",
-        palindrome(input)
-    );
-}
+// // Problem 5:
 
-fn palindrome(input: String) -> bool {
-    /* Your Code here */
-    let reversed: String = input.chars().rev().collect();
-    input == reversed
-}
+// /*
+// A Pythagorean triple consists of three positive integers a, b, and c, satisfying the condition a^2 + b^2 = c^2.
+// These triples are commonly written as (a, b, c), and a well-known example is (3, 4, 5).
 
-// Problem 5:
+// Write a program that computes the Pythagorean triplet such that a < b < c and a + b + c = 1000.
+// */
+// fn main() {
+//     println!(
+//         "The Pythagorean triplet such that a < b < c and a + b + c = 1000 is {:?}",
+//         find_pythagorean_triplet()
+//     );
+// }
 
-/*
-A Pythagorean triple consists of three positive integers a, b, and c, satisfying the condition a^2 + b^2 = c^2.
-These triples are commonly written as (a, b, c), and a well-known example is (3, 4, 5).
+// fn find_pythagorean_triplet() -> Vec<i32> {
+//     let mut result: Vec<i32> = vec![];
+//     for a in 1..=1000 {
+//         for b in a + 1..=1000 {
+//             let c: i32 = 1000 - a - b;
+//             if a * a + b * b == c * c {
+//                 result.push(a);
+//                 result.push(b);
+//                 result.push(c);
+//             }
+//         }
+//     }
+//     return result;
+// }
 
-Write a program that computes the Pythagorean triplet such that a < b < c and a + b + c = 1000.
-*/
+// // Problem 6: Write a function that implements the logic,
+// // 'You can see the movie if you are 17 or older, or if you are 13 or older and have a parent's permission.'
+// // Note: This means that if you 17 or older, you implicitly have permission.
 
-fn main() {
-    println!(
-        "The Pythagorean triplet such that a < b < c and a + b + c = 1000 is {:?}",
-        find_pythagorean_triplet()
-    );
-}
+// use std::env;
 
-fn find_pythagorean_triplet() -> Vec<i32> {
-    let mut result: Vec<i32> = vec![];
-    for a in 1..=1000 {
-        for b in a + 1..=1000 {
-            let c: i32 = 1000 - a - b;
-            if a * a + b * b == c * c {
-                result.push(a);
-                result.push(b);
-                result.push(c);
-            }
-        }
-    }
-    return result;
-}
+// fn main() {
+//     let args: Vec<String> = env::args().collect();
 
-// Problem 6: Write a function that implements the logic,
-// 'You can see the movie if you are 17 or older, or if you are 13 or older and have a parent's permission.'
-// Note: This means that if you 17 or older, you implicitly have permission.
+//     let num: i32 = args[1].parse().unwrap();
+//     let flag: bool = args[2].parse().unwrap();
 
-use std::env;
+//     println!("Can see a movie {}", can_see_movie(num, flag));
+// }
 
-fn main() {
-    let args: Vec<String> = env::args().collect();
-
-    let num: i32 = args[1].parse().unwrap();
-    let flag: bool = args[2].parse().unwrap();
-
-    println!("Can see a movie {}", can_see_movie(num, flag));
-}
-
-fn can_see_movie(age: i32, permission: bool) -> bool {
-    (age >= 17) || (age >= 13 && permission)
-}
+// fn can_see_movie(age: i32, permission: bool) -> bool {
+//     (age >= 17) || (age >= 13 && permission)
+// }

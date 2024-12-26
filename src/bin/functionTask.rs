@@ -37,58 +37,58 @@ fn triple(x: i32) -> i32 {
     x * 3
 }
 
-fn main() {
-    // let x = triple(double(5));
-    // let y = triple(x);
-    // println!("Answer: {}", y);
+// fn main() {
+//     // let x = triple(double(5));
+//     // let y = triple(x);
+//     // println!("Answer: {}", y);
 
-    // solution
-    println!("Answer: {}", triple(triple(double(5))));
-}
+//     // solution
+//     println!("Answer: {}", triple(triple(double(5))));
+// }
 
-// Problem 3: Correct the code below so that it compiles
+// // Problem 3: Correct the code below so that it compiles
 
-fn print_distance(point: (f32, f32)) -> f32 {
-    let (x, y) = point;
-    (x.powf(2.0) + y.powf(2.0)).sqrt() // Formula for computing distance
-}
+// fn print_distance(point: (f32, f32)) -> f32 {
+//     let (x, y) = point;
+//     (x.powf(2.0) + y.powf(2.0)).sqrt() // Formula for computing distance
+// }
 
-fn main() {
-    println!(
-        "The distance of the number the point from the origin is {}",
-        // print_distance(5.0, 4.0) // concentrate on the call to the function
-        print_distance((5.0, 4.0)) // Solution
-    );
-}
+// fn main() {
+//     println!(
+//         "The distance of the number the point from the origin is {}",
+//         // print_distance(5.0, 4.0) // concentrate on the call to the function
+//         print_distance((5.0, 4.0)) // Solution
+//     );
+// }
 
-//Problem 4: Add the definition of the quadruple function below by calling the double function twice inside the quadruple function.
+// //Problem 4: Add the definition of the quadruple function below by calling the double function twice inside the quadruple function.
 
-fn double(x: i32) -> i32 {
-    x * 2
-}
+// fn double(x: i32) -> i32 {
+//     x * 2
+// }
 
-fn quadruple(x: i32) -> i32 {
-    double(double(x))
-}
+// fn quadruple(x: i32) -> i32 {
+//     double(double(x))
+// }
 
-fn main() {
-    println!(
-        "For 1: the expected value is 4 while the output is {}",
-        quadruple(1)
-    );
+// fn main() {
+//     println!(
+//         "For 1: the expected value is 4 while the output is {}",
+//         quadruple(1)
+//     );
 
-    println!(
-        "For 2: the expected value is 8 while the output is {}",
-        quadruple(2)
-    );
+//     println!(
+//         "For 2: the expected value is 8 while the output is {}",
+//         quadruple(2)
+//     );
 
-    println!(
-        "For 3: the expected value is 12 while the output is {}",
-        quadruple(3)
-    );
+//     println!(
+//         "For 3: the expected value is 12 while the output is {}",
+//         quadruple(3)
+//     );
 
-    println!(
-        "For 4: the expected value is 16 while the output is {}",
-        quadruple(4)
-    );
-}
+//     println!(
+//         "For 4: the expected value is 16 while the output is {}",
+//         quadruple(4)
+//     );
+// }

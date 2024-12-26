@@ -1,8 +1,11 @@
 [package]
-name = "learn_rust"
+name = "learn_rust999999911111999"
 version = "0.1.0"
 edition = "2021"
+description = " Online Store"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+array_tool = "1.0.3"
