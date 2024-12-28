@@ -1,5 +1,5 @@
 // -------------------------------------------
-// 			Trait Bounds
+// 			Super Traits
 // -------------------------------------------
 
 struct Square {
@@ -15,13 +15,24 @@ struct Rectangle {
     color: String,
 }
 
-trait Shape {
+trait Draw {
+    fn draw_object(&self);
+}
+trait Shape: Draw + OtherTrait + SomeOtherTrait {
     fn area(&self) -> f32;
     fn perimeter(&self) -> f32 {
         println!("Perimeter not implemented, returning dummy value");
         0.0
     }
 }
+
+trait OtherTrait {}
+impl OtherTrait for Rectangle {}
+impl OtherTrait for Square {}
+
+trait SomeOtherTrait {}
+impl SomeOtherTrait for Rectangle {}
+impl SomeOtherTrait for Square {}
 
 impl Shape for Rectangle {
     fn area(&self) -> f32 {
@@ -44,6 +55,16 @@ impl Shape for Square {
     }
 }
 
+impl Draw for Square {
+    fn draw_object(&self) {
+        println!("Drawing Square");
+    }
+}
+impl Draw for Rectangle {
+    fn draw_object(&self) {
+        println!("Drawing Rectangle");
+    }
+}
 fn shape_properties<T>(object: T)
 where
     T: Shape,
@@ -52,10 +73,6 @@ where
     object.perimeter();
 }
 
-// fn print_greeting2(input: &impl Shape) {
-//     println!("{}", input.area());
-// }
-
 fn returns_shape() -> impl Shape {
     let sq = Square {
         side: 5.0,
@@ -63,24 +80,8 @@ fn returns_shape() -> impl Shape {
         color: String::from("Red"),
     };
     sq
-    // let rect = Rectangle {
-    //     length: 5.0,
-    //     width: 10.0,
-    //     line_width: 5,
-    //     color: String::from("Red"),
-    // };
-
-    // let x = false;
-    // if x {
-    //     sq
-    // } else {
-    //     rect
-    // }
 }
 
-struct Circle {
-    radius: f32,
-}
 fn main() {
     let r1 = Rectangle {
         width: 5.0,
@@ -95,8 +96,6 @@ fn main() {
         color: String::from("Red"),
     };
 
-    let c1 = Circle { radius: 5.0 };
     shape_properties(r1);
     shape_properties(s1);
-    // shape_properties(c1); // Trait bound not satisfied
 }

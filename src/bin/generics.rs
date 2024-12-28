@@ -2,6 +2,9 @@
 // 			Generics
 // -------------------------------------------
 
+// Generics are a way to abstract over types. They allow you to write functions, structs, and enums without specifying what types they handle. Instead, you define the types when you use them.
+// Generics are useful because they allow you to write code that can work with any type. You can write a function that works with integers, floats, strings, or any other type.
+// In Rust, you can define generics using the <T> syntax. T is a type parameter that represents any type. You can use T in the function signature to specify that the function works with any type.
 struct Point<T, U> {
     x: T,
     y: U,
