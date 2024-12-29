@@ -7,6 +7,9 @@
 //     fn next(&mut self) -> Option<Self::Item>;
 // }
 
+//iterator is a trait that allows you to iterate over a sequence of items
+// intoiter is a trait that allows you to iterate over a sequence of items immutably
+
 #[derive(Debug, Clone)]
 struct Employee {
     name: String,
@@ -29,6 +32,7 @@ impl Iterator for Employee_Records {
         }
     }
 }
+
 fn main() {
     let mut emp_1 = Employee {
         name: String::from("John"),
